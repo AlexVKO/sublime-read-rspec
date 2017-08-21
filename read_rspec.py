@@ -9,7 +9,7 @@ class ReadRspecCommand(sublime_plugin.TextCommand):
         self.create_new_tab(text)
 
     def search_lines_with_rspec_history_pattern(self):
-        regions = self.view.find_all('\ +(describe|it|context|specify)')
+        regions = self.view.find_all('\ +(describe|it|context|specify)\s')
         lines = itertools.groupby(regions, self.view.line)
         return [l for l, _ in lines]
 
